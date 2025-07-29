@@ -1,4 +1,5 @@
 const HashMap = require("./hashMap");
+const HashSet = require("./hashSet");
 
 const test = new HashMap(16, 0.75);
 
@@ -16,6 +17,7 @@ test.set('jacket', 'blue');
 test.set('kite', 'pink');
 test.set('lion', 'golden');
 
+console.log("\n--- HashMap ---");
 console.log('Length after 12 inserts:', test.length()); // Should be 12
 console.log('Capacity after 12 inserts:', test.capacity); // Should be 16
 
@@ -43,3 +45,24 @@ console.log('entries:', test.entries());
 test.clear();
 console.log('length after clear:', test.length()); // 0
 console.log('keys after clear:', test.keys());
+
+
+// HashSet
+const set = new HashSet(16, 0.75);
+
+console.log("\n--- HashSet ---");
+set.add('apple');
+set.add('banana');
+set.add('carrot');
+set.add('apple');
+
+console.log('Has apple?', set.has('apple')); // true
+console.log('Has dog?', set.has('dog')); // false
+console.log('Has apple?', set.has('apple')); // true
+console.log('Has dog?', set.has('dog')); // false
+console.log('Remove apple:', set.remove('apple')); // true
+console.log('Has apple been removed?', set.has('apple')); // false
+console.log('Length:', set.length()); // 2
+console.log('Keys:', set.keys());
+set.clear();
+console.log('Length after clear:', set.length()); // 0
